@@ -1,6 +1,7 @@
 const Pbf = require('pbf');
 const fs = require('fs');
 const YAML = require('yaml');
+const marked = require('marked');
 const compile = require('pbf/compile');
 const schema = require('protocol-buffers-schema');
 
@@ -18,10 +19,10 @@ for (const file of files) {
 
     for (const entry of YAML.parse(fs.readFileSync(file, 'utf8'))) {
         const point = {
-            description: entry.description,
-            regex: entry.regex || false,
             methods: [],
-            threads: []
+            threads: [],
+            description: marked.parseInline(entry.description, { gfm: true, breaks: true }).trim(),
+            regex: entry.regex || false,
         };
         if (entry.method) point.methods.push(entry.method);
         if (entry.methods) point.methods.push(...entry.methods);
