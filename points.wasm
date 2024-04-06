@@ -1,0 +1,92 @@
+
+∂
+ÄInvokes an event in the Bukkit plugin framework, allowing plugins to react to specific occurrences within the game environment.
+1org.bukkit.plugin.SimplePluginManager.callEvent()
+ˇ
+‡These threads are used by Bukkit plugins to run asynchronous tasks. Usually processing done within these tasks does not affect the game/server performance too much, as long as the overall system is not low on CPU resources.
+"Craft Scheduler Thread.*
+û
+cTemporarily suspends a part of the program until further action, typically for internal processes.
+sun.misc.Unsafe.park()jdk.internal.misc.Unsafe.park()
+ﬂ
+éCauses the program to pause execution for a specified duration. While paused, no processing is taking place.
+Context is required to understand whether this is good or bad. If the program is "busy waiting" for another thing to happen (e.g. another Thread to do something or an I/O operation), it may cause the program to slow down. In other cases, (e.g. if seen at the root of the Minecraft server tick loop), it is probably good news! See the [tick loop guide](https://spark.lucko.me/docs/guides/The-tick-loop) for more info.
+java.lang.Thread.sleep()2java.util.concurrent.locks.LockSupport.parkNanos()
+Æ
+ìMarks the starting point of execution for a particular part of the program. The first child node will usually always be this, just keep expanding!
+java.lang.Thread.run()
+ß
+ïThe main server thread that the game loop is executed on. See the [Tick Loop guide](https://spark.lucko.me/docs/guides/The-tick-loop) for more info.
+"Server thread
+ã
++The root of the Minecraft server activity.
+*net.minecraft.server.MinecraftServer.run()0net.minecraft.server.MinecraftServer.runServer()
+Ñ
+êUsually, this is the server "sleeping" (waiting to process the next game tick). Sometimes this section is also used to execute scheduled tasks.
+8net.minecraft.server.MinecraftServer.waitUntilNextTick()5net.minecraft.server.IAsyncTaskHandler.sleepForTick()
+
+LPauses the server briefly until the pending background tasks are completed.
+/net.minecraft.server.MinecraftServer.pollTask()
+Ñ
+]Runs a specific task which needs to happen regularly within the server (e.g. every x ticks).
+#net.minecraft.server.TickTask.run()
+√
+ÑManages player (client) connections to the server, in particular the processing of incoming packets (actions performed by players).
+:net.minecraft.network.protocol.PlayerConnectionUtils.run()
+•
+pManages the continuous update cycle of the Minecraft server, handling various server-side tasks and operations.
+1net.minecraft.server.MinecraftServer.tickServer()
+§
+sControls the ongoing update process for a specific Minecraft world, handling changes and events within that world.
+-net.minecraft.server.level.WorldServer.tick()
+∂
+yIterates over entities within a Minecraft world to update their status and behaviors according to the current game tick.
+9net.minecraft.world.level.entity.EntityTickList.forEach()
+¨
+uUpdates and manages block entities within a Minecraft world, ensuring they behave correctly and remain synchronized.
+3net.minecraft.world.level.World.tickBlockEntities()
+™
+wManages the ticking process for various game elements on the server side, ensuring timely updates and synchronization.
+/net.minecraft.world.ticks.TickListServer.tick()
+∂
+yHandles the update process for entities within a Minecraft world, excluding those that are passengers on other entities.
+9net.minecraft.server.level.WorldServer.tickNonPassenger()
+π
+zControls the update process for chunks within the Minecraft server, ensuring they remain loaded and updated as necessary.
+;net.minecraft.server.level.ChunkProviderServer.tickChunks()
+∑
+ÇManages the update process for player-related chunks within the Minecraft server, ensuring they are loaded and updated correctly.
+0net.minecraft.server.level.PlayerChunkMap.tick()
+∏
+ÅHandles the update process for a specific chunk within a Minecraft world, ensuring its contents remain synchronized and updated.
+2net.minecraft.server.level.WorldServer.tickChunk()
+”
+éManages the update process for pathfinding goals for entities in the Minecraft world, ensuring they behave according to their assigned goals.
+@net.minecraft.world.entity.ai.goal.PathfinderGoalSelector.tick()
+¶
+nControls the ongoing update process for the server's network connection, managing incoming and outgoing data.
+4net.minecraft.server.network.ServerConnection.tick()
+¢
+sManages the network communication within the Minecraft server, handling the sending and receiving of data packets.
++net.minecraft.network.NetworkManager.tick()
+¨
+hHandles player movement events within the server, ensuring that player positions are updated correctly.
+@net.minecraft.server.network.PlayerConnection.handleMovePlayer()
+≥
+tSends updates and changes to tracked entities within the Minecraft server to synchronize their states with clients.
+;net.minecraft.server.level.EntityTrackerEntry.sendChanges()
+æ
+ÑRetrieves the state of a block within a specific chunk in the Minecraft world, providing information about its type and properties.
+5net.minecraft.world.level.chunk.Chunk.getBlockState()
+´
+mNotifies all players with access to a container (e.g., chest, inventory) about changes made to its contents.
+:net.minecraft.world.inventory.Container.broadcastChanges()
+¥
+Sends a data packet over the network within the Minecraft server, allowing communication between server and client components.
+1net.minecraft.network.NetworkManager.sendPacket()
+™
+éThis thread is used by spark to periodically collect certain [metrics](https://spark.lucko.me/docs/misc/About-spark-metrics) from the server.
+"spark-monitoring-thread
+u
+PThis thread is responsible for collecting the data you're looking at right now!
+"!spark-async-sampler-worker-thread
