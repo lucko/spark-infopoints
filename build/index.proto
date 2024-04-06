@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package spark;
+
+message InfoPoint {
+    string description = 1;
+    bool regex = 2;
+    repeated string methods = 3;
+    repeated string threads = 4;
+}
+
+message InfoPoints {
+    repeated InfoPoint points = 1;
+}

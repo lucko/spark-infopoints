@@ -1,0 +1,8 @@
+- thread: spark-monitoring-thread
+  description: >
+    This thread is used by spark to periodically collect certain
+    [metrics](https://spark.lucko.me/docs/misc/About-spark-metrics) from the server.
+
+- thread: spark-async-sampler-worker-thread
+  description: >
+    This thread is responsible for collecting the data you're looking at right now!

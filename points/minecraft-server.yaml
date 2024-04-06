@@ -1,0 +1,115 @@
+- thread: Server thread
+  description: >
+    The main server thread that the game loop is executed on. See the
+    [Tick Loop guide](https://spark.lucko.me/docs/guides/The-tick-loop) for more info.
+
+- methods:
+  - net.minecraft.server.MinecraftServer.run()
+  - net.minecraft.server.MinecraftServer.runServer()
+  description: >
+    The root of the Minecraft server activity.
+
+- methods:
+  - net.minecraft.server.MinecraftServer.waitUntilNextTick()
+  - net.minecraft.server.IAsyncTaskHandler.sleepForTick()
+  description: >
+    Usually, this is the server "sleeping" (waiting to process the next game tick). Sometimes this
+    section is also used to execute scheduled tasks.
+
+- method: net.minecraft.server.MinecraftServer.pollTask()
+  description: >
+    Pauses the server briefly until the pending background tasks are completed.
+
+- method: net.minecraft.server.TickTask.run()
+  description: >
+    Runs a specific task which needs to happen regularly within the server (e.g. every x ticks).
+
+- method: net.minecraft.network.protocol.PlayerConnectionUtils.run()
+  description: >
+    Manages player (client) connections to the server, in particular the processing of incoming
+    packets (actions performed by players).
+    
+- method: net.minecraft.server.MinecraftServer.tickServer()
+  description: >
+    Manages the continuous update cycle of the Minecraft server, handling various server-side tasks
+    and operations.
+
+- method: net.minecraft.server.level.WorldServer.tick()
+  description: >
+    Controls the ongoing update process for a specific Minecraft world, handling changes and events
+    within that world.
+
+- method: net.minecraft.world.level.entity.EntityTickList.forEach()
+  description: >
+    Iterates over entities within a Minecraft world to update their status and behaviors according
+    to the current game tick.
+
+- method: net.minecraft.world.level.World.tickBlockEntities()
+  description: >
+    Updates and manages block entities within a Minecraft world, ensuring they behave correctly and
+    remain synchronized.
+
+- method: net.minecraft.world.ticks.TickListServer.tick()
+  description: >
+    Manages the ticking process for various game elements on the server side, ensuring timely
+    updates and synchronization.
+
+- method: net.minecraft.server.level.WorldServer.tickNonPassenger()
+  description: >
+    Handles the update process for entities within a Minecraft world, excluding those that are
+    passengers on other entities.
+
+- method: net.minecraft.server.level.ChunkProviderServer.tickChunks()
+  description: >
+    Controls the update process for chunks within the Minecraft server, ensuring they remain loaded
+    and updated as necessary.
+
+- method: net.minecraft.server.level.PlayerChunkMap.tick()
+  description: >
+    Manages the update process for player-related chunks within the Minecraft server, ensuring they
+    are loaded and updated correctly.
+
+- method: net.minecraft.server.level.WorldServer.tickChunk()
+  description: >
+    Handles the update process for a specific chunk within a Minecraft world, ensuring its contents
+    remain synchronized and updated.
+
+- method: net.minecraft.world.entity.ai.goal.PathfinderGoalSelector.tick()
+  description: >
+    Manages the update process for pathfinding goals for entities in the Minecraft world, ensuring
+    they behave according to their assigned goals.
+
+- method: net.minecraft.server.network.ServerConnection.tick()
+  description: >
+    Controls the ongoing update process for the server's network connection, managing incoming and
+    outgoing data.
+
+- method: net.minecraft.network.NetworkManager.tick()
+  description: >
+    Manages the network communication within the Minecraft server, handling the sending and
+    receiving of data packets.
+
+- method: net.minecraft.server.network.PlayerConnection.handleMovePlayer()
+  description: >
+    Handles player movement events within the server, ensuring that player positions are updated
+    correctly.
+
+- method: net.minecraft.server.level.EntityTrackerEntry.sendChanges()
+  description: >
+    Sends updates and changes to tracked entities within the Minecraft server to synchronize their
+    states with clients.
+
+- method: net.minecraft.world.level.chunk.Chunk.getBlockState()
+  description: >
+    Retrieves the state of a block within a specific chunk in the Minecraft world, providing
+    information about its type and properties.
+
+- method: net.minecraft.world.inventory.Container.broadcastChanges()
+  description: >
+    Notifies all players with access to a container (e.g., chest, inventory) about changes made to
+    its contents.
+
+- method: net.minecraft.network.NetworkManager.sendPacket()
+  description: >
+    Sends a data packet over the network within the Minecraft server, allowing communication between
+    server and client components.

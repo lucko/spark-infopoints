@@ -1,0 +1,12 @@
+{
+  "name": "spark-infopoints: build script",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "compile": "node index.js"
+  },
+  "dependencies": {
+    "pbf": "^3.2.1",
+    "yaml": "^2.4.1"
+  }
+}

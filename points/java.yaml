@@ -1,0 +1,24 @@
+- methods:
+  - sun.misc.Unsafe.park()
+  - jdk.internal.misc.Unsafe.park()
+  description: >
+    Temporarily suspends a part of the program until further action, typically for internal
+    processes.
+
+- methods:
+  - java.lang.Thread.sleep()
+  - java.util.concurrent.locks.LockSupport.parkNanos()
+  description: >
+    Causes the program to pause execution for a specified duration. While paused, no processing is
+    taking place.
+
+    Context is required to understand whether this is good or bad. If the program is "busy waiting"
+    for another thing to happen (e.g. another Thread to do something or an I/O operation), it may
+    cause the program to slow down. In other cases, (e.g. if seen at the root of the Minecraft
+    server tick loop), it is probably good news! See the
+    [tick loop guide](https://spark.lucko.me/docs/guides/The-tick-loop) for more info.
+
+- method: java.lang.Thread.run()
+  description: >
+    Marks the starting point of execution for a particular part of the program. The first child node
+    will usually always be this, just keep expanding!
