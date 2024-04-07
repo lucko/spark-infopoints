@@ -1,61 +1,61 @@
 
 ¥
-Invokes an event in the Bukkit plugin framework, allowing plugins to react to specific occurrences within the game environment.1org.bukkit.plugin.SimplePluginManager.callEvent()
-˛
-ﬂThese threads are used by Bukkit plugins to run asynchronous tasks. Usually processing done within these tasks does not affect the game/server performance too much, as long as the overall system is not low on CPU resources."Craft Scheduler Thread.*
+1org.bukkit.plugin.SimplePluginManager.callEvent()Invokes an event in the Bukkit plugin framework, allowing plugins to react to specific occurrences within the game environment.
+Ä/^Craft Scheduler Thread.*$/ﬂThese threads are used by Bukkit plugins to run asynchronous tasks. Usually processing done within these tasks does not affect the game/server performance too much, as long as the overall system is not low on CPU resources.
 ù
-bTemporarily suspends a part of the program until further action, typically for internal processes.sun.misc.Unsafe.park()jdk.internal.misc.Unsafe.park()
+sun.misc.Unsafe.park()
+jdk.internal.misc.Unsafe.park()bTemporarily suspends a part of the program until further action, typically for internal processes.
 ˆ
-•Causes the program to pause execution for a specified duration. While paused, no processing is taking place.<br>Context is required to understand whether this is good or bad. If the program is &quot;busy waiting&quot; for another thing to happen (e.g. another Thread to do something or an I/O operation), it may cause the program to slow down. In other cases, (e.g. if seen at the root of the Minecraft server tick loop), it is probably good news! See the <a href="https://spark.lucko.me/docs/guides/The-tick-loop">tick loop guide</a> for more info.java.lang.Thread.sleep()2java.util.concurrent.locks.LockSupport.parkNanos()
+java.lang.Thread.sleep()
+2java.util.concurrent.locks.LockSupport.parkNanos()•Causes the program to pause execution for a specified duration. While paused, no processing is taking place.<br>Context is required to understand whether this is good or bad. If the program is &quot;busy waiting&quot; for another thing to happen (e.g. another Thread to do something or an I/O operation), it may cause the program to slow down. In other cases, (e.g. if seen at the root of the Minecraft server tick loop), it is probably good news! See the <a href="https://spark.lucko.me/docs/guides/The-tick-loop">tick loop guide</a> for more info.
 ≠
-íMarks the starting point of execution for a particular part of the program. The first child node will usually always be this, just keep expanding!java.lang.Thread.run()
-±
-üThe main server thread that the game loop is executed on. See the <a href="https://spark.lucko.me/docs/guides/The-tick-loop">Tick Loop guide</a> for more info."Server thread
+java.lang.Thread.run()íMarks the starting point of execution for a particular part of the program. The first child node will usually always be this, just keep expanding!
+±Server threadüThe main server thread that the game loop is executed on. See the <a href="https://spark.lucko.me/docs/guides/The-tick-loop">Tick Loop guide</a> for more info.
 ä
-*The root of the Minecraft server activity.*net.minecraft.server.MinecraftServer.run()0net.minecraft.server.MinecraftServer.runServer()
+*net.minecraft.server.MinecraftServer.run()
+0net.minecraft.server.MinecraftServer.runServer()*The root of the Minecraft server activity.
 ç
-ôUsually, this is the server &quot;sleeping&quot; (waiting to process the next game tick). Sometimes this section is also used to execute scheduled tasks.8net.minecraft.server.MinecraftServer.waitUntilNextTick()5net.minecraft.server.IAsyncTaskHandler.sleepForTick()
+8net.minecraft.server.MinecraftServer.waitUntilNextTick()
+5net.minecraft.server.IAsyncTaskHandler.sleepForTick()ôUsually, this is the server &quot;sleeping&quot; (waiting to process the next game tick). Sometimes this section is also used to execute scheduled tasks.
 ~
-KPauses the server briefly until the pending background tasks are completed./net.minecraft.server.MinecraftServer.pollTask()
+/net.minecraft.server.MinecraftServer.pollTask()KPauses the server briefly until the pending background tasks are completed.
 É
-\Runs a specific task which needs to happen regularly within the server (e.g. every x ticks).#net.minecraft.server.TickTask.run()
+#net.minecraft.server.TickTask.run()\Runs a specific task which needs to happen regularly within the server (e.g. every x ticks).
 ¬
-ÉManages player (client) connections to the server, in particular the processing of incoming packets (actions performed by players).:net.minecraft.network.protocol.PlayerConnectionUtils.run()
+:net.minecraft.network.protocol.PlayerConnectionUtils.run()ÉManages player (client) connections to the server, in particular the processing of incoming packets (actions performed by players).
 §
-oManages the continuous update cycle of the Minecraft server, handling various server-side tasks and operations.1net.minecraft.server.MinecraftServer.tickServer()
+1net.minecraft.server.MinecraftServer.tickServer()oManages the continuous update cycle of the Minecraft server, handling various server-side tasks and operations.
 £
-rControls the ongoing update process for a specific Minecraft world, handling changes and events within that world.-net.minecraft.server.level.WorldServer.tick()
+-net.minecraft.server.level.WorldServer.tick()rControls the ongoing update process for a specific Minecraft world, handling changes and events within that world.
 µ
-xIterates over entities within a Minecraft world to update their status and behaviors according to the current game tick.9net.minecraft.world.level.entity.EntityTickList.forEach()
+9net.minecraft.world.level.entity.EntityTickList.forEach()xIterates over entities within a Minecraft world to update their status and behaviors according to the current game tick.
 ´
-tUpdates and manages block entities within a Minecraft world, ensuring they behave correctly and remain synchronized.3net.minecraft.world.level.World.tickBlockEntities()
+3net.minecraft.world.level.World.tickBlockEntities()tUpdates and manages block entities within a Minecraft world, ensuring they behave correctly and remain synchronized.
 ©
-vManages the ticking process for various game elements on the server side, ensuring timely updates and synchronization./net.minecraft.world.ticks.TickListServer.tick()
+/net.minecraft.world.ticks.TickListServer.tick()vManages the ticking process for various game elements on the server side, ensuring timely updates and synchronization.
 µ
-xHandles the update process for entities within a Minecraft world, excluding those that are passengers on other entities.9net.minecraft.server.level.WorldServer.tickNonPassenger()
+9net.minecraft.server.level.WorldServer.tickNonPassenger()xHandles the update process for entities within a Minecraft world, excluding those that are passengers on other entities.
 ∏
-yControls the update process for chunks within the Minecraft server, ensuring they remain loaded and updated as necessary.;net.minecraft.server.level.ChunkProviderServer.tickChunks()
+;net.minecraft.server.level.ChunkProviderServer.tickChunks()yControls the update process for chunks within the Minecraft server, ensuring they remain loaded and updated as necessary.
 ∂
-ÅManages the update process for player-related chunks within the Minecraft server, ensuring they are loaded and updated correctly.0net.minecraft.server.level.PlayerChunkMap.tick()
+0net.minecraft.server.level.PlayerChunkMap.tick()ÅManages the update process for player-related chunks within the Minecraft server, ensuring they are loaded and updated correctly.
 ∑
-ÄHandles the update process for a specific chunk within a Minecraft world, ensuring its contents remain synchronized and updated.2net.minecraft.server.level.WorldServer.tickChunk()
+2net.minecraft.server.level.WorldServer.tickChunk()ÄHandles the update process for a specific chunk within a Minecraft world, ensuring its contents remain synchronized and updated.
 “
-çManages the update process for pathfinding goals for entities in the Minecraft world, ensuring they behave according to their assigned goals.@net.minecraft.world.entity.ai.goal.PathfinderGoalSelector.tick()
+@net.minecraft.world.entity.ai.goal.PathfinderGoalSelector.tick()çManages the update process for pathfinding goals for entities in the Minecraft world, ensuring they behave according to their assigned goals.
 ©
-qControls the ongoing update process for the server&#39;s network connection, managing incoming and outgoing data.4net.minecraft.server.network.ServerConnection.tick()
+4net.minecraft.server.network.ServerConnection.tick()qControls the ongoing update process for the server&#39;s network connection, managing incoming and outgoing data.
 °
-rManages the network communication within the Minecraft server, handling the sending and receiving of data packets.+net.minecraft.network.NetworkManager.tick()
++net.minecraft.network.NetworkManager.tick()rManages the network communication within the Minecraft server, handling the sending and receiving of data packets.
 ´
-gHandles player movement events within the server, ensuring that player positions are updated correctly.@net.minecraft.server.network.PlayerConnection.handleMovePlayer()
+@net.minecraft.server.network.PlayerConnection.handleMovePlayer()gHandles player movement events within the server, ensuring that player positions are updated correctly.
 ≤
-sSends updates and changes to tracked entities within the Minecraft server to synchronize their states with clients.;net.minecraft.server.level.EntityTrackerEntry.sendChanges()
+;net.minecraft.server.level.EntityTrackerEntry.sendChanges()sSends updates and changes to tracked entities within the Minecraft server to synchronize their states with clients.
 Ω
-ÉRetrieves the state of a block within a specific chunk in the Minecraft world, providing information about its type and properties.5net.minecraft.world.level.chunk.Chunk.getBlockState()
+5net.minecraft.world.level.chunk.Chunk.getBlockState()ÉRetrieves the state of a block within a specific chunk in the Minecraft world, providing information about its type and properties.
 ™
-lNotifies all players with access to a container (e.g., chest, inventory) about changes made to its contents.:net.minecraft.world.inventory.Container.broadcastChanges()
+:net.minecraft.world.inventory.Container.broadcastChanges()lNotifies all players with access to a container (e.g., chest, inventory) about changes made to its contents.
 ≥
-~Sends a data packet over the network within the Minecraft server, allowing communication between server and client components.1net.minecraft.network.NetworkManager.sendPacket()
-¥
-òThis thread is used by spark to periodically collect certain <a href="https://spark.lucko.me/docs/misc/About-spark-metrics">metrics</a> from the server."spark-monitoring-thread
-x
-SThis thread is responsible for collecting the data you&#39;re looking at right now!"!spark-async-sampler-worker-thread
+1net.minecraft.network.NetworkManager.sendPacket()~Sends a data packet over the network within the Minecraft server, allowing communication between server and client components.
+¥spark-monitoring-threadòThis thread is used by spark to periodically collect certain <a href="https://spark.lucko.me/docs/misc/About-spark-metrics">metrics</a> from the server.
+x!spark-async-sampler-worker-threadSThis thread is responsible for collecting the data you&#39;re looking at right now!
