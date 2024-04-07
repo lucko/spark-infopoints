@@ -3,8 +3,7 @@
     Invokes an event in the Bukkit plugin framework, allowing plugins to react to specific
     occurrences within the game environment.
 
-- thread: Craft Scheduler Thread.*
-  regex: true
+- thread: /^Craft Scheduler Thread.*$/
   description: >
     These threads are used by Bukkit plugins to run asynchronous tasks. Usually processing done
     within these tasks does not affect the game/server performance too much, as long as the

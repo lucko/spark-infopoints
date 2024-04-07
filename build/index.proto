@@ -3,10 +3,9 @@ syntax = "proto3";
 package spark;
 
 message InfoPoint {
-    string description = 1;
-    bool regex = 2;
-    repeated string methods = 3;
-    repeated string threads = 4;
+    repeated string methods = 1;
+    repeated string threads = 2;
+    string description = 3;
 }
 
 message InfoPoints {

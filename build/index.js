@@ -22,7 +22,6 @@ for (const file of files) {
             methods: [],
             threads: [],
             description: marked.parseInline(entry.description, { gfm: true, breaks: true }).trim(),
-            regex: entry.regex || false,
         };
         if (entry.method) point.methods.push(entry.method);
         if (entry.methods) point.methods.push(...entry.methods);
