@@ -28,7 +28,7 @@
         "java.util.concurrent.locks.LockSupport.parkNanos()"
       ],
       "threads": [],
-      "description": "Causes the program to pause execution for a specified duration. While paused, no processing is taking place.<br>Context is required to understand whether this is good or bad. If the program is &quot;busy waiting&quot; for another thing to happen (e.g. another Thread to do something or an I/O operation), it may cause the program to slow down. In other cases, (e.g. if seen at the root of the Minecraft server tick loop), it is probably good news! See the <a href=\"https://spark.lucko.me/docs/guides/The-tick-loop\">tick loop guide</a> for more info."
+      "description": "Causes the program to pause execution for a specified duration. While paused, no processing is taking place.<br>Context is required to understand whether this is good or bad. If the program is &quot;busy waiting&quot; for another thing to happen (e.g. another Thread to do something or an I/O operation), it may cause the program to slow down. In other cases, (e.g. if seen at the root of the Minecraft server tick loop), it is probably good news! See the <a target=\"_blank\" href=\"https://spark.lucko.me/docs/guides/The-tick-loop\">tick loop guide</a> for more info."
     },
     {
       "methods": [
@@ -42,7 +42,7 @@
       "threads": [
         "Server thread"
       ],
-      "description": "The main server thread that the game loop is executed on. See the <a href=\"https://spark.lucko.me/docs/guides/The-tick-loop\">Tick Loop guide</a> for more info."
+      "description": "The main server thread that the game loop is executed on. See the <a target=\"_blank\" href=\"https://spark.lucko.me/docs/guides/The-tick-loop\">Tick Loop guide</a> for more info."
     },
     {
       "methods": [
@@ -205,7 +205,7 @@
       "threads": [
         "spark-monitoring-thread"
       ],
-      "description": "This thread is used by spark to periodically collect certain <a href=\"https://spark.lucko.me/docs/misc/About-spark-metrics\">metrics</a> from the server."
+      "description": "This thread is used by spark to periodically collect certain <a target=\"_blank\" href=\"https://spark.lucko.me/docs/misc/About-spark-metrics\">metrics</a> from the server."
     },
     {
       "methods": [],

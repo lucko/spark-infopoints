@@ -5,12 +5,12 @@
 ù
 sun.misc.Unsafe.park()
 jdk.internal.misc.Unsafe.park()bTemporarily suspends a part of the program until further action, typically for internal processes.
-ˆ
+Ü
 java.lang.Thread.sleep()
-2java.util.concurrent.locks.LockSupport.parkNanos()•Causes the program to pause execution for a specified duration. While paused, no processing is taking place.<br>Context is required to understand whether this is good or bad. If the program is &quot;busy waiting&quot; for another thing to happen (e.g. another Thread to do something or an I/O operation), it may cause the program to slow down. In other cases, (e.g. if seen at the root of the Minecraft server tick loop), it is probably good news! See the <a href="https://spark.lucko.me/docs/guides/The-tick-loop">tick loop guide</a> for more info.
+2java.util.concurrent.locks.LockSupport.parkNanos()µCauses the program to pause execution for a specified duration. While paused, no processing is taking place.<br>Context is required to understand whether this is good or bad. If the program is &quot;busy waiting&quot; for another thing to happen (e.g. another Thread to do something or an I/O operation), it may cause the program to slow down. In other cases, (e.g. if seen at the root of the Minecraft server tick loop), it is probably good news! See the <a target="_blank" href="https://spark.lucko.me/docs/guides/The-tick-loop">tick loop guide</a> for more info.
 ≠
 java.lang.Thread.run()íMarks the starting point of execution for a particular part of the program. The first child node will usually always be this, just keep expanding!
-±Server threadüThe main server thread that the game loop is executed on. See the <a href="https://spark.lucko.me/docs/guides/The-tick-loop">Tick Loop guide</a> for more info.
+¡Server threadØThe main server thread that the game loop is executed on. See the <a target="_blank" href="https://spark.lucko.me/docs/guides/The-tick-loop">Tick Loop guide</a> for more info.
 ä
 *net.minecraft.server.MinecraftServer.run()
 0net.minecraft.server.MinecraftServer.runServer()*The root of the Minecraft server activity.
@@ -57,5 +57,5 @@
 :net.minecraft.world.inventory.Container.broadcastChanges()lNotifies all players with access to a container (e.g., chest, inventory) about changes made to its contents.
 ≥
 1net.minecraft.network.NetworkManager.sendPacket()~Sends a data packet over the network within the Minecraft server, allowing communication between server and client components.
-¥spark-monitoring-threadòThis thread is used by spark to periodically collect certain <a href="https://spark.lucko.me/docs/misc/About-spark-metrics">metrics</a> from the server.
+ƒspark-monitoring-thread®This thread is used by spark to periodically collect certain <a target="_blank" href="https://spark.lucko.me/docs/misc/About-spark-metrics">metrics</a> from the server.
 x!spark-async-sampler-worker-threadSThis thread is responsible for collecting the data you&#39;re looking at right now!
