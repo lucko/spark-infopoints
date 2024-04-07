@@ -5,6 +5,13 @@ const marked = require('marked');
 const compile = require('pbf/compile');
 const schema = require('protocol-buffers-schema');
 
+const markedRenderer = new marked.Renderer();
+const linkRenderer = markedRenderer.link;
+markedRenderer.link = (href, title, text) => {
+    const html = linkRenderer.call(markedRenderer, href, title, text);
+    return html.replace(/^<a /, '<a target="_blank" ');
+}
+
 const proto = schema.parse(fs.readFileSync('index.proto'));
 const InfoPoints = compile(proto).InfoPoints;
 
@@ -21,7 +28,7 @@ for (const file of files) {
         const point = {
             methods: [],
             threads: [],
-            description: marked.parseInline(entry.description, { gfm: true, breaks: true }).trim(),
+            description: marked.parseInline(entry.description, { gfm: true, breaks: true, renderer: markedRenderer }).trim(),
         };
         if (entry.method) point.methods.push(entry.method);
         if (entry.methods) point.methods.push(...entry.methods);
