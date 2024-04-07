@@ -167,6 +167,13 @@
     },
     {
       "methods": [
+        "net.minecraft.server.ServerFunctionManager.tick()"
+      ],
+      "threads": [],
+      "description": "Deals with functions from datapacks that are executed repeatedly. To find out which datapacks or functions are expensive, you may use the <a target=\"_blank\" href=\"https://minecraft.wiki/w/Commands/perf\">/perf</a> command from Minecraft."
+    },
+    {
+      "methods": [
         "net.minecraft.server.network.PlayerConnection.handleMovePlayer()"
       ],
       "threads": [],

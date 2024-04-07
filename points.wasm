@@ -47,6 +47,8 @@
 4net.minecraft.server.network.ServerConnection.tick()qControls the ongoing update process for the server&#39;s network connection, managing incoming and outgoing data.
 ¡
 +net.minecraft.network.NetworkManager.tick()rManages the network communication within the Minecraft server, handling the sending and receiving of data packets.
+¢
+1net.minecraft.server.ServerFunctionManager.tick()ìDeals with functions from datapacks that are executed repeatedly. To find out which datapacks or functions are expensive, you may use the <a target="_blank" href="https://minecraft.wiki/w/Commands/perf">/perf</a> command from Minecraft.
 «
 @net.minecraft.server.network.PlayerConnection.handleMovePlayer()gHandles player movement events within the server, ensuring that player positions are updated correctly.
 ²
