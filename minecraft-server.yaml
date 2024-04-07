@@ -89,6 +89,11 @@
     Manages the network communication within the Minecraft server, handling the sending and
     receiving of data packets.
 
+- method: net.minecraft.server.ServerFunctionManager.tick()
+  description: >
+    Deals with functions from datapacks that are executed repeatedly. To find out which datapacks
+    or functions are expensive, you may use the [/perf](https://minecraft.wiki/w/Commands/perf) command from Minecraft.
+
 - method: net.minecraft.server.network.PlayerConnection.handleMovePlayer()
   description: >
     Handles player movement events within the server, ensuring that player positions are updated
