@@ -17,11 +17,11 @@ jobs:
           node-version: lts/*
 
       - name: Install node dependencies
-        working-directory: ./build
+        working-directory: ./.build
         run: npm install
 
       - name: Compile files
-        working-directory: ./build
+        working-directory: ./.build
         run: npm run compile
 
       - name: Deploy

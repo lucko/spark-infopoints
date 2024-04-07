@@ -17,9 +17,9 @@ const InfoPoints = compile(proto).InfoPoints;
 
 const points = [];
 
-const files = fs.readdirSync('../points/')
+const files = fs.readdirSync('../')
     .filter(name => name.endsWith('.yaml'))
-    .map(name => `../points/${name}`);
+    .map(name => `../${name}`);
 
 for (const file of files) {
     console.log(`reading: ${file}`);

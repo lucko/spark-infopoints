@@ -1,6 +1,6 @@
 {
     "yaml.validate": true,
     "yaml.schemas": {
-        "./.vscode/points.schema.json": "points/*.yaml"
+        "./.vscode/points.schema.json": "*.yaml"
     },
 }
