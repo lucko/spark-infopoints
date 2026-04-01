@@ -12,6 +12,7 @@
 - methods:
   - net.minecraft.server.MinecraftServer.waitUntilNextTick()
   - net.minecraft.server.IAsyncTaskHandler.sleepForTick()
+  - net.minecraft.server.MinecraftServer.recordTaskExecutionTimeWhileWaiting()
   description: >
     Usually, this is the server "sleeping" (waiting to process the next game tick). Sometimes this
     section is also used to execute scheduled tasks.
