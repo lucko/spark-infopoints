@@ -1,0 +1,5 @@
+- method: '/^gregtech\.api\.metatileentity\.BaseMetaTileEntity\.(?:gtswn\$dispatchObservedTick|redirect\$[^$]+\$gtswn\$observe(?:Legacy)?Controller)(?:\(.*\))?$/'
+  description: >
+    GT Simple Wireless Network sets up energy-flow observation around GregTech's machine tick here.
+    The total time shown on this frame includes the machine's own `onPostTick` and all of its child calls.
+    Expand the frame to inspect what the machine is doing, or use Flat View with Self Time to inspect the wrapper itself.
